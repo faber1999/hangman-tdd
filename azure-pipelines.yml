@@ -19,14 +19,14 @@ steps:
   displayName: 'npm install and build'
 
 - task: PublishTestResults@2
-  condition: suceededOrFailed()
+  condition: succeededOrFailed()
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TESTS-*.xml'
   displayName: 'Publish Test Results'
 
 - task: PublishCodeCoverageResults@1
-  condition: suceededOrFailed()
+  condition: succeededOrFailed()
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/coverage/hangman-tdd/cobertura-coverage.xml'
