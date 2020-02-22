@@ -26,10 +26,20 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('hangman-tdd');
   });
 
+  /*
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('hangman-tdd app is running!');
   });
+  */
+
+  it('should show the welcome message',() =>{
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.welcome span').textContent).toContain('Bienvenido al HangMan');
+  });
+
 });
