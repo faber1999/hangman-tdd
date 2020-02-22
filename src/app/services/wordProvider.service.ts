@@ -1,6 +1,6 @@
 export class WordProvider{
 
-    words = ['HOJA', 'CUADERNO', 'COMPUTADOR', 'LECHE', 'ARROZ'];
+    words = ['PROCASTINAR', 'COLCHON', 'COMPUTADOR', 'CELUWEB', 'CUMPLIMIENTO'];
 
     constructor(){}
 
