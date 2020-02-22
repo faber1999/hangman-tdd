@@ -42,4 +42,11 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.welcome span').textContent).toContain('Bienvenido al HangMan');
   });
 
+  it('should show the tries', ()=>{
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.text-tries').textContent).toContain('Intentos 0 / 9');
+  });
+
 });
