@@ -1,14 +1,4 @@
-# Node.js with Angular
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure subscription 1(fad61bc2-13bc-415c-af25-cf9aca8e185e)'
-    appType: 'webApp'
-    WebAppName: 'faber1999-hangmantest'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/dist/hang'
-# Build a Node.js project that uses Angular.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
 
 trigger:
 - master
@@ -30,3 +20,15 @@ steps:
 
 - script: npx ng test --watch=false
   displayName: 'Test Hangman Karma'
+
+  # Node.js with Angular
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(fad61bc2-13bc-415c-af25-cf9aca8e185e)'
+    appType: 'webApp'
+    WebAppName: 'faber1999-hangmantest'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/dist/hang'
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
