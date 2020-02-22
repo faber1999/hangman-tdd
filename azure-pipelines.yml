@@ -23,12 +23,3 @@ steps:
 
 - script: npx ng test --watch=false --codeCoverage=true
   displayName: 'Test Hangman Karma'
-
-- task: PublishTestResults@2
-  condition: succeededOrFailed()
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
-  displayName: 'Publish Test Results'
-
-- task: PublishCodeCoverageResults@1
