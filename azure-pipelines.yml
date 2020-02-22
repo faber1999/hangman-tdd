@@ -18,6 +18,20 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
+- task: PublishTestResults@2
+  condition: suceededOrFailed()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TESTS-*.xml'
+  displayName: 'Publish Test Results'
+
+- task: PublishCodeCoverageResults@1
+  condition: suceededOrFailed()
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/hangman-tdd/cobertura-coverage.xml'
+  displayName: 'Publish Code Coverage Results'
+
 - script: npx ng test --watch=false
   displayName: 'Test Hangman Karma'
 
@@ -28,7 +42,7 @@ steps:
     azureSubscription: 'Azure subscription 1(fad61bc2-13bc-415c-af25-cf9aca8e185e)'
     appType: 'webApp'
     WebAppName: 'faber1999-hangmantest'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/dist/hang'
+    packageForLinux: '$(Build.SourcesDirectory)/dist/hangman-tdd'
 # Build a Node.js project that uses Angular.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
