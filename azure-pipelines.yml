@@ -42,7 +42,9 @@ steps:
     azureSubscription: 'Azure subscription 1(fad61bc2-13bc-415c-af25-cf9aca8e185e)'
     appType: 'webApp'
     WebAppName: 'faber1999-hangmantest'
-    packageForLinux: '$(Build.SourcesDirectory)/dist/hangman-tdd'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/dist/hangman-tdd'
+
+    
 # Build a Node.js project that uses Angular.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
